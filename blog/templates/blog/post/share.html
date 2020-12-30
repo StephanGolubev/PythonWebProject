@@ -1,20 +1,20 @@
 {% extends "blog/base.html" %}
 
-{% block title %}Share a post{% endblock %}
+{% block title %}Поделиться постом{% endblock %}
 
 {% block content %}
 <hr>
-<a href="{{ post.get_absolute_url }}" type="post">Go Back to post "{{ post.title }}"</a>
+<a href="{{ post.get_absolute_url }}" type="post">Назад к посту "{{ post.title }}"</a>
 <hr>
-<a href="/blog/" type="post">Go Home</a>
+<a href="/blog/" type="post">На главную</a>
 <hr>
     {% if sent %}
         <h1>E-mail successfully sent</h1>
         <p>
-            "{{ post.title }}" was successfully sent to {{ form.clean_data.to }}
+            "{{ post.title }}" успешно послано { form.clean_data.to }}
         </p>
     {% else %}
-        <h1>Share "{{ post.title }}" by email</h1>
+        <h1>Подельиться постом "{{ post.title }}" по почте</h1>
         <form action="." method="post">
             {{ form.as_p }}
             {% csrf_token %}
